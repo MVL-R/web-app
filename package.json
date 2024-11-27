@@ -1,0 +1,26 @@
+{
+  "name": "web-app",
+  "version": "1.0.0",
+  "description": "Web app using node, express and sqlite3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MVL-R/web-app.git"
+  },
+  "keywords": [
+    "web-app"
+  ],
+  "author": "Mark Vincent Rodulfa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MVL-R/web-app/issues"
+  },
+  "homepage": "https://github.com/MVL-R/web-app#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "sqlite3": "^5.1.7"
+  }
+}
