@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Reddit Clone</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 flex justify-center items-center h-screen">
+  <div class="bg-white shadow-lg rounded-lg p-8 w-96">
+    <h1 class="text-2xl font-bold mb-4">Register</h1>
+    <form id="registerForm">
+      <div class="mb-4">
+        <label for="username" class="block text-gray-700">Username</label>
+        <input type="text" id="username" class="w-full border rounded px-3 py-2" required>
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-gray-700">Password</label>
+        <input type="password" id="password" class="w-full border rounded px-3 py-2" required>
+      </div>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded w-full">Register</button>
+    </form>
+    <p class="mt-4 text-sm">Already have an account? <a href="/login.html" class="text-blue-500">Login</a></p>
+  </div>
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+
+      if (response.ok) {
+        alert('Registration successful! You can now log in.');
+        window.location.href = '/login.html';
+      } else {
+        alert('Registration failed. Username may already be taken.');
+      }
+    });
+  </script>
+</body>
+</html>
