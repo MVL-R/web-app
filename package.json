@@ -1,7 +1,6 @@
 {
   "name": "web-app",
   "version": "1.0.0",
-  "description": "Web app using node, express and sqlite3",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -11,20 +10,23 @@
     "type": "git",
     "url": "git+https://github.com/MVL-R/web-app.git"
   },
-  "keywords": [
-    "web-app"
-  ],
-  "author": "Mark Vincent Rodulfa",
+  "author": "Mark Vincent L. Rodulfa",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MVL-R/web-app/issues"
   },
   "homepage": "https://github.com/MVL-R/web-app#readme",
+  "description": "",
   "dependencies": {
-    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
     "express": "^4.21.1",
-    "express-session": "^1.18.1",
+    "method-override": "^3.0.0",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16"
   }
 }
