@@ -10,19 +10,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/', (req, res) => {
-    const { name, description, date_created } = req.body;
-
-    const query = `INSERT INTO items (name, description, date_created) VALUES (?, ?, ?)`;
-    db.run(query, [name, description, date_created], function(err) {
-        if (err) {
-            return console.error(err.message);
-        }
-        console.log(`Item added with ID: ${this.lastID}`);
-        res.redirect('/');
-    });
-});
-
 app.get('/', (req, res) => {
     db.all('SELECT * FROM items ORDER BY date_created DESC', [], (err, rows) => {
         if (err) {
