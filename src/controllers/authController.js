@@ -1,4 +1,4 @@
-const db = require('./database');
+const db = require('../models/database');
 const bcrypt = require('bcrypt');
 
 exports.registerUser = (req, res) => {
@@ -24,7 +24,8 @@ exports.loginUser = (req, res) => {
 };
 
 exports.logoutUser = (req, res) => {
-  req.session.destroy(() => {
+  req.session.destroy((err) => {
+    if (err) return res.status(500).json({ error: 'Logout failed' });
     res.json({ message: 'Logged out successfully' });
   });
 };

@@ -1,4 +1,4 @@
-const db = require('./database');
+const db = require('../models/database');
 
 exports.getAllPosts = (req, res) => {
   db.all(`

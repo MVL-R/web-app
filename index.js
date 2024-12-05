@@ -7,7 +7,7 @@ const authRoutes = require('./src/routes/authRoutes');
 const postRoutes = require('./src/routes/postRoutes');
 
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 
 app.use(bodyParser.json());
 app.use(session({
@@ -30,6 +30,10 @@ app.get('/posts', (req, res) => {
     return res.redirect('/login.html');
   }
   res.sendFile(path.join(__dirname, 'public', 'posts.html'));
+});
+
+app.get('/', (req, res) => {
+  res.send('Welcome! Please go to <a href="/login.html">Login</a> to access the site.');
 });
 
 app.use('/api/auth', authRoutes);
